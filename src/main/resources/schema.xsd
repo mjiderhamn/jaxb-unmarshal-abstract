@@ -1,0 +1,15 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:foo="urn:foo" targetNamespace="urn:foo"
+            xmlns:base="urn:base"
+            attributeFormDefault="unqualified" elementFormDefault="unqualified">
+  <xsd:import namespace="urn:base" schemaLocation="base.xsd"/>
+  <xsd:element name="sub" substitutionGroup="base:mybase" type="foo:SubType"/>
+  <xsd:complexType name="SubType">
+      <xsd:complexContent>
+          <xsd:extension base="base:BaseType">
+              <xsd:sequence>
+                  <xsd:element name="bar" type="xsd:string"/>
+              </xsd:sequence>
+          </xsd:extension>
+      </xsd:complexContent>
+  </xsd:complexType>  
+</xsd:schema>
